@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{EXTENSION_NAME}}</title>
+    <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="brand">
+                <img id="brand-icon" class="brand-icon" src="icons/icon128.png" alt="{{EXTENSION_NAME}} icon" />
+                <div class="brand-copy">
+                    <p class="eyebrow">{{EXTENSION_NAME}}</p>
+                    <h1>Extension control</h1>
+                </div>
+            </div>
+            <p class="desc">Turn the extension on or off for the current browser.</p>
+
+            <label class="toggle" for="enabled-toggle">
+                <span class="toggle-text">
+                    <strong id="state-label">Enabled</strong>
+                    <span>Applies automatically on matched pages</span>
+                </span>
+                <span class="switch">
+                    <input id="enabled-toggle" type="checkbox" />
+                    <span class="slider"></span>
+                </span>
+            </label>
+
+            <p class="status" id="status-text"><strong>Active.</strong> The extension is enabled.</p>
+
+            <div class="links">
+                <a href="{{REPO_URL}}" target="_blank" rel="noopener noreferrer">
+                    <img id="help-icon" class="toggle-icon" src="icons/icon16.png" alt="" aria-hidden="true" />
+                    <span>Help</span>
+                </a>
+                <a href="{{REPO_URL}}/issues" target="_blank" rel="noopener noreferrer">
+                    <img id="contribute-icon" class="toggle-icon" src="icons/icon16.png" alt="" aria-hidden="true" />
+                    <span>Contribute</span>
+                </a>
+            </div>
+
+            <div class="footer">Changes sync instantly with open matching tabs.</div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

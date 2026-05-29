@@ -1,0 +1,61 @@
+<svg width="1400" height="560" viewBox="0 0 1400 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">{{EXTENSION_NAME}} promotional tile</title>
+  <desc id="desc">{{SHORT_DESCRIPTION}}</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08101E"/>
+      <stop offset="0.55" stop-color="#0D1629"/>
+      <stop offset="1" stop-color="#111D33"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="250" y1="90" x2="1160" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4D9FEF"/>
+      <stop offset="1" stop-color="#1FD1A5"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#162033"/>
+      <stop offset="1" stop-color="#0F1727"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1400" height="560" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="24" stdDeviation="Privacy/Policy: If you publish, include a short privacy note (you only use storage.local — state that clearly).Privacy/Policy: If you publish, include a short privacy note (you only use storage.local — state that clearly).Privacy/Policy: If you publish, include a short privacy note (you only use storage.local — state that clearly).Privacy/Policy: If you publish, include a short privacy note (you only use storage.local — state that clearly).Privacy/Policy: If you publish, include a short privacy note (you only use storage.local — state that clearly).Privacy/Policy: If you publish, include a short privacy note (you only use storage.local — state that clearly).24" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="560" rx="36" fill="url(#bg)"/>
+  <circle cx="1260" cy="108" r="170" fill="#1FD1A5" fill-opacity="0.08"/>
+  <circle cx="180" cy="472" r="220" fill="#4D9FEF" fill-opacity="0.10"/>
+  <path d="M0 452C180 392 300 388 440 420C570 450 678 504 840 500C1020 496 1120 420 1400 384V560H0V452Z" fill="#0B1323" fill-opacity="0.82"/>
+
+  <g filter="url(#shadow)">
+    <rect x="82" y="82" width="1236" height="396" rx="30" fill="url(#panel)" stroke="none"/>
+  </g>
+
+  <rect x="118" y="122" width="180" height="72" rx="18" fill="rgba(77,159,239,0.14)" stroke="rgba(77,159,239,0.35)"/>
+  <rect x="132" y="140" width="38" height="38" rx="10" fill="url(#accent)"/>
+  <path d="M145 159L151 165L163 151" stroke="#08101E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="184" y="162" fill="#DCE7FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">{{EXTENSION_NAME_LINE1}}</text>
+  <text x="184" y="180" fill="#91A1BF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">{{EXTENSION_NAME_LINE2}}</text>
+
+  <text x="118" y="292" fill="#F3F7FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-1.5">{{HERO_LINE1}}</text>
+  <text x="118" y="364" fill="url(#accent)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="68" font-weight="800" letter-spacing="-1.5">{{HERO_LINE2}}</text>
+  <text x="118" y="410" fill="#AAB4C5" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="500">{{HERO_SUBLINE}}</text>
+
+  <g transform="translate(808 142)">
+    <rect x="0" y="0" width="458" height="248" rx="24" fill="#0B1220" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="22" y="22" width="414" height="20" rx="10" fill="#162136"/>
+    <rect x="22" y="62" width="278" height="16" rx="8" fill="#24334E"/>
+    <rect x="22" y="92" width="362" height="16" rx="8" fill="#1C2A41"/>
+    <rect x="22" y="122" width="324" height="16" rx="8" fill="#24334E"/>
+    <rect x="22" y="152" width="192" height="16" rx="8" fill="#1C2A41"/>
+    <rect x="22" y="188" width="100" height="36" rx="12" fill="url(#accent)" fill-opacity="0.95"/>
+    <rect x="138" y="188" width="126" height="36" rx="12" fill="#17243A" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="280" y="188" width="152" height="36" rx="12" fill="#17243A" stroke="rgba(255,255,255,0.08)"/>
+    <circle cx="58" cy="33" r="6" fill="#F25F5C"/>
+    <circle cx="78" cy="33" r="6" fill="#F2C14E"/>
+    <circle cx="98" cy="33" r="6" fill="#5CD67A"/>
+  </g>
+
+  <g transform="translate(994 404)">
+    <rect x="0" y="0" width="258" height="30" rx="15" fill="rgba(31,209,165,0.12)" stroke="rgba(31,209,165,0.3)"/>
+    <text x="18" y="20" fill="#B9FFE7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">Local storage only</text>
+  </g>
+</svg>

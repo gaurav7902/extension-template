@@ -1,0 +1,73 @@
+name: Build and Release Extension
+
+on:
+    push:
+        branches:
+            - main
+            - master
+        paths:
+            - 'extension/**'
+            - 'generate-extension-zip.sh'
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Read extension version
+              id: version
+              run: echo "version=$(jq -r '.version' extension/manifest.json)" >> "$GITHUB_OUTPUT"
+
+            - name: Build extension zip
+              run: bash generate-extension-zip.sh
+
+            - name: Commit updated zip to repo
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git add extension.zip || true
+                  if git diff --cached --quiet; then
+                    echo "No zip changes to commit."
+                  else
+                    git commit -m "Update extension zip [skip ci]"
+                    git push
+                  fi
+
+            - name: Capture commit SHA
+              id: sha
+              run: echo "short_sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+            - name: Create GitHub release
+              uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: v${{ steps.version.outputs.version }}-${{ steps.sha.outputs.short_sha }}
+                  name: ${{ steps.version.outputs.version }}-${{ steps.sha.outputs.short_sha }}
+                  generate_release_notes: true
+                  files: extension.zip
+
+            - name: Update README release links
+              run: |
+                  set -euo pipefail
+                  TAG="v${{ steps.version.outputs.version }}-${{ steps.sha.outputs.short_sha }}"
+                  REPO="${GITHUB_REPOSITORY}"
+
+                  # Update release tag links and download links to point at the new tag
+                  sed -E -i "s#https://github.com/${REPO}/releases/tag/[^\")' ]+#https://github.com/${REPO}/releases/tag/${TAG}#g" README.md || true
+                  sed -E -i "s#https://github.com/${REPO}/releases/download/[^\")' ]+/extension.zip#https://github.com/${REPO}/releases/download/${TAG}/extension.zip#g" README.md || true
+
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git add README.md || true
+                  if git diff --cached --quiet; then
+                    echo "No README changes to commit."
+                  else
+                    git commit -m "Update README release links to ${TAG} [skip ci]"
+                    git push
+                  fi
